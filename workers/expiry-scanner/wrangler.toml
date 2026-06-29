@@ -1,0 +1,14 @@
+name = "fridge-expiry-scanner"
+main = "src/index.ts"
+compatibility_date = "2026-06-01"
+
+# 每日台灣時間 08:00 掃描到期（Cron 為 UTC，台灣 +8 → 00:00 UTC）
+[triggers]
+crons = ["0 0 * * *"]
+
+# Secrets 用 `wrangler secret put` 設定，勿寫死於此檔：
+#   wrangler secret put SUPABASE_URL
+#   wrangler secret put SUPABASE_SERVICE_ROLE_KEY
+#   wrangler secret put LINE_CHANNEL_ACCESS_TOKEN
+#   wrangler secret put GENERATE_RECIPE_URL
+#   wrangler secret put SERVICE_AUTH
